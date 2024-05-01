@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+{% block title %}sign up{% endblock %}
+{% block body %}
+{% include 'nav2.html' %}
+<br>
+<div style="padding-left: 10%;padding-right: 10%;">
+<div class="container" class="uniform">
+    <form method="POST" class="uniform">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" class="btn btn-primary"/>
+    </form>
+</div>
+</div>
+<br>
+{% include 'footer.html' %}
+{% endblock %}

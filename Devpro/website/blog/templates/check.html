@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+{% block title %}check{% endblock %}
+{% block body %}
+{% include 'nav2.html' %}
+<br>
+<h1> Add collections </h1>
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+    {{form}}
+    <input type="submit">
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% include 'footer.html' %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+{% block title %}profile{% endblock %}
+{% block body %}
+{% include 'nav2.html' %}
+<br>
+{% if user.is_authenticated %}
+<div class="container">
+    <h4 style="padding-left: 3%;"><u>Welcome to profile</u></h4>
+   <t  style="padding-left: 3%;">Name : {{user.username}}</t>
+</div>
+<br>
+<h2 class="text-center"><u>Keep Post</u></h2>
+<br>
+<div style="padding-left: 7%;padding-right: 8%;">
+   <form  method="POST">
+      {% csrf_token %}
+      {{blogpost|crispy}}
+      <br>
+      <input type="submit" class="btn btn-primary">
+   </form>
+</div> 
+{% else %}
+<h2 class="text-center">Hi user, please do login or If you don't have account, you can signup</h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endif %}
+<br>
+{% include 'footer.html' %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+{% block title %}check{% endblock %}
+{% block body %}
+{% include 'nav2.html' %}
+<br>
+<h1>checkall</h1>
+<br>    
+<table>
+    <thead>
+        <tr>
+            <th>Heading</th>
+            <th>Name</th>
+            <th>Aname</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for check in all_check %}
+        <tr>
+            <td>{{check.title}}</td>
+            <td>{{check.title2}}</td>
+            <td>{{check.title3}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+{% include 'footer.html' %}
+{% endblock %}
+

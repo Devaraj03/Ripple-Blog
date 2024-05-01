@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+{% block title %}{{postdetail.title}}{% endblock %}
+{% block body %}
+{% include 'nav2.html' %}
+
+<div class="container">
+<div class="card">
+    <div class="card-body">
+        <h1>{{postdetail.title}}</h1>
+        <small class="text-muted">{{postdetail.created_on}}</small>
+        <img style="height: fit-content;width: 100%;" src="{{postdetail.thumbnail.url}}">
+        <br>
+        <br>
+        <p>{{postdetail.content}}</p>
+        <br>
+        <p>{{postdetail.inside_content}}</p>
+    </div>
+    <div class="card-footer">
+       {{postdetail.author}}
+    </div>
+</div>
+<br/>
+<div class="card">
+    <b class="text-left">#Comments</b>
+    <div class="card-body">
+        {% for comment in comment %}  
+        <b>{{comment.name}} . <small class="text-muted">{{comment.created_on}}</small></b>
+        <p>{{comment.content}}</p>
+        {% endfor %}
+          
+    </div>
+</div>
+<br/>
+<div class="card">
+    <b><h4 class="text-center">Leave your comment</h4></b>
+    <div class="card-body">
+        <form method="POST">
+        {% csrf_token %} {{commentform|crispy}}
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <br/>
+        <br>
+        <input type="submit" class="btn btn-danger"/>
+        </form>
+    </div>
+</div>
+<br>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}
